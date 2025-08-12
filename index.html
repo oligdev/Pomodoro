@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomodoro Lofi</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Pomodoro Lofi</h1>
+        <div id="timer-display" class="timer">25:00</div>
+        
+        <div class="controls">
+            <button id="start-btn" class="control-btn">Iniciar</button>
+            <button id="pause-btn" class="control-btn">Pausar</button>
+            <button id="reset-btn" class="control-btn">Reiniciar</button>
+        </div>
+        
+        <div class="music-controls">
+            <button id="play-music-btn" class="music-btn">Reproduzir Música</button>
+            <button id="pause-music-btn" class="music-btn">Pausar Música</button>
+        </div>
+    </div>
+
+    <div id="player"></div>
+
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script src="script.js"></script>
+
+    <footer class="footer">
+        <img src="logo.png" alt="Olig DEV" class="logo-footer">
+    </footer>
+</body>
+</html>
