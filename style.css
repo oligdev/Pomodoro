@@ -7,8 +7,8 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #2c3e50;
-    color: #ecf0f1;
+    background-color: #2c3e50; /* Azul escuro */
+    color: #ecf0f1; /* Branco acinzentado */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -16,16 +16,18 @@ body {
     margin: 0;
     text-align: center;
     flex-direction: column;
+    position: relative; /* Para posicionar o footer e a modal */
 }
 
 .container {
-    background-color: #34495e;
+    background-color: #34495e; /* Azul mais claro */
     padding: 3rem;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     width: 90%;
     max-width: 500px;
     margin: 0 auto;
+    z-index: 1; /* Garante que o container esteja acima da modal quando ela não está ativa */
 }
 
 .timer {
@@ -35,6 +37,7 @@ body {
     padding: 1rem;
     background-color: #2c3e50;
     border-radius: 8px;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2); /* Sutil sombra interna */
 }
 
 .controls, .music-controls {
@@ -52,25 +55,35 @@ body {
     font-size: 1rem;
     font-weight: 700;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.1s ease; /* Adicionado transform */
 }
 
 .control-btn {
-    background-color: #5A189A;
+    background-color: #5A189A; /* Roxo */
     color: white;
 }
 
 .control-btn:hover {
-    background-color: #5A189A;
+    background-color: #6B20B0; /* Roxo mais escuro no hover */
+    transform: translateY(-2px); /* Efeito de "levantar" */
+}
+
+.control-btn:active {
+    transform: translateY(0); /* Retorna ao normal ao clicar */
 }
 
 .music-btn {
-    background-color: #3498db;
+    background-color: #3498db; /* Azul claro */
     color: white;
 }
 
 .music-btn:hover {
-    background-color: #2980b9;
+    background-color: #2980b9; /* Azul mais escuro no hover */
+    transform: translateY(-2px);
+}
+
+.music-btn:active {
+    transform: translateY(0);
 }
 
 /* Esconde o player do YouTube */
@@ -94,28 +107,75 @@ body {
     width: 60px;
     height: auto;
     opacity: 0.85;
-    filter: invert(100%);
+    filter: invert(100%); /* Inverte as cores para se adequar ao fundo escuro */
+}
+
+/* Estilos da Modal de Alerta */
+.modal {
+    display: none; /* Escondido por padrão */
+    position: fixed; /* Fica no topo da tela */
+    z-index: 100; /* Acima de tudo */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Habilita scroll se necessário */
+    background-color: rgba(0, 0, 0, 0.6); /* Fundo escuro semi-transparente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #34495e;
+    margin: auto;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+    animation: fadeIn 0.3s ease-out; /* Animação de entrada */
+}
+
+.modal-content p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #ecf0f1;
+}
+
+.modal-content .control-btn {
+    background-color: #5A189A;
+    color: white;
+    padding: 10px 25px;
+    font-size: 1.1rem;
+}
+
+.modal-content .control-btn:hover {
+    background-color: #6B20B0;
+}
+
+/* Animação para a modal */
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
 }
 
 /* Responsividade */
 @media (max-width: 600px) {
     .container {
-        padding: 1rem;
+        padding: 1.5rem; /* Ajuste de padding para telas menores */
         max-width: 95vw;
     }
 
-    h1 {
-        font-size: 1.5rem;
-    }
-
     .timer {
-        font-size: 2.5rem;
-        padding: 0.5rem;
+        font-size: 3.5rem; /* Reduzido para telas menores */
+        padding: 0.75rem;
     }
 
     .control-btn, .music-btn {
-        padding: 0.5rem 1rem;
-        font-size: 0.9rem;
+        padding: 0.6rem 1.2rem;
+        font-size: 0.95rem;
     }
 
     .footer {
@@ -123,21 +183,34 @@ body {
     }
 
     .logo-footer {
-        width: 40px;
+        width: 45px; /* Reduzido para telas menores */
+    }
+
+    .modal-content {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .modal-content p {
+        font-size: 1rem;
     }
 }
 
 @media (max-width: 400px) {
     .container {
-        padding: 0.5rem;
+        padding: 1rem;
     }
 
     .timer {
-        font-size: 2rem;
+        font-size: 2.8rem;
     }
 
     .logo-footer {
-        width: 30px;
+        width: 35px;
     }
 
+    .control-btn, .music-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
+    }
 }
