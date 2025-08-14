@@ -6,6 +6,7 @@
     <title>Timer Pomodoro - Olig DEV</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="logo.png">
 </head>
 <body>
     <div class="container">
@@ -23,6 +24,14 @@
         </div>
     </div>
 
+    <!-- Modal para alertas e interação do usuário -->
+    <div id="alert-modal" class="modal">
+        <div class="modal-content">
+            <p id="modal-message">@olig.dev</p>
+            <button id="modal-ok-btn" class="control-btn">OK</button>
+        </div>
+    </div>
+
     <div id="player"></div>
 
     <script src="https://www.youtube.com/iframe_api"></script>
@@ -34,4 +43,3 @@
 </body>
 
 </html>
-
